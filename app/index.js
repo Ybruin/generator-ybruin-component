@@ -41,6 +41,21 @@ module.exports = generators.Base.extend({
                 }
             },
             {
+                name: 'componentPlatform',
+                type: 'list',
+                message: '请选择平台:',
+                choices: [
+                    {
+                        name: '移动端',
+                        value: 'mobile',
+                        checked: true
+                    },{
+                        name: 'PC端',
+                        value: 'pc'
+                    }
+                ]
+            },
+            {
                 type: 'input',
                 name: 'componentName',
                 message: '输入组件名称',
@@ -108,6 +123,7 @@ module.exports = generators.Base.extend({
         that.directory(that.componentAssets,that.fileDir);
         that.copy('components.json', that.fileDir+'/components.json');
         that.copy('ybruin-conf.js', that.fileDir+'/ybruin-conf.js');
+        that.copy(that.componentPlatform+'.html', that.fileDir+'/'+that.componentName+'.html');
         //模板
         var filepath = path.resolve(__dirname,'./templates/'+that.componentAssets);
         fs.readdir(filepath, function(err,files){
