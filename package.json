@@ -16,12 +16,6 @@
   "license": "MIT",
   "dependencies": {
     "del": "^2.2.0",
-    "yeoman-generator": "^0.20.0"
-  },
-  "readme": "# generator-ybruin\n#### a generator to build ybruin project base on yeoman\n",
-  "readmeFilename": "README.md",
-  "gitHead": "a9eb4a138320f245da27a0482dc88f216bc78056",
-  "_id": "generator-ybruin@0.1.5",
-  "_shasum": "96dc122e56bd765ee763cd6195f39a0d7b96a605",
-  "_from": "generator-ybruin@>=0.1.0 <0.2.0"
+    "yeoman-generator": "0.20.0"
+  }
 }

@@ -148,16 +148,9 @@ module.exports = generators.Base.extend({
         that.dirPath = that.componentName+'/'+that.componentVersion+'/';
         that.winDirPath = that.componentName+'\\'+that.componentVersion+'\\';
         if(commonsPath){
-            // fs.mkdir(that.fileDir+'/commons', function(err){
-            //     if(err){
-            //         return console.error(err);
-            //     }
-            //     that.directory(commonsPath,that.fileDir+'/commons');
-            // })
             if(win32){
-                require('child-process').exec('mklink /d '+that.winDirPath+'commons'+' '+commonsPath);
+                require('child_process').exec('mklink /d '+that.winDirPath+'commons'+' '+commonsPath);
             }else{
-                console.log(commonsPath);
                 this.spawnCommand('ln', ['-s', commonsPath,that.dirPath+'commons']);
             }
         }
@@ -179,7 +172,9 @@ module.exports = generators.Base.extend({
                         if(files[i].indexOf('scss')>=0){
                             files[i] = files[i].split('scss')[0]+'css';
                         }
-                        that.componentFiles.push(files[i]);
+                        if(files[i].indexOf('html')<0){
+                            that.componentFiles.push(files[i]);
+                        }
                     }
                     if(files[i] === 'images'){
                         fs.readdir(that.dirPath+'/images', function(err, files){
