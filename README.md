@@ -1,2 +1,2 @@
 # generator-ybruin-component
-#### a generator to create ybruin component framework
+#### a generator to build ybruin component project base on yeoman
